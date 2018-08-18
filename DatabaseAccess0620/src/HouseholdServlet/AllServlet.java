@@ -1,9 +1,6 @@
-package HouseholdServlet
-Household Servlet;
+package HouseholdServlet;
 
 import java.io.IOException;
-
-Test!
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class HouseholdServlet
+ * Servlet implementation class AllServlet
  */
-@WebServlet("/HouseholdServlet")
-public class HouseholdServlet extends HttpServlet {
+@WebServlet("/AllServlet")
+public class AllServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public HouseholdServlet() {
+    public AllServlet() {
         super();
         // TODO Auto-generated constructor stub
     }

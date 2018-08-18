@@ -6,10 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import HouseholdServlet.HouseholdServlet;
 import dto.Household;
 
-public class HoseholdDAO {
+public class HouseholdDAO {
 
 	public static Household searchDao(int key){
 		//①準備
@@ -47,7 +46,7 @@ public class HoseholdDAO {
 				String Type1 = rs.getString("Type1");
 				String Type2 = rs.getString("Type2");
 				int Rare = rs.getInt("Rare");
-				result = new HouseholdServlet(Number,Name,Type1,Type2,Rare);
+				//result = new HouseholdServlet(Number,Name,Type1,Type2,Rare);
 
 			}
 
@@ -183,6 +182,69 @@ public class HoseholdDAO {
 			pstmt.setString(3,key2);
 			pstmt.setString(4,key3);
 			pstmt.setString(5,key4);
+			result = pstmt.executeUpdate();
+
+			// ⑥SQL文を実行してDBMSから結果を受信する
+
+
+
+		} catch (ClassNotFoundException e) {
+			System.out.println("JDBCドライバが見つかりません。");
+			e.printStackTrace();
+		} catch (SQLException e) {
+			System.out.println("DBアクセス時にエラーが発生しました。");
+			e.printStackTrace();
+		} finally {
+
+			try {
+				if (pstmt != null) {
+					pstmt.close();
+				}
+			} catch (SQLException e) {
+				System.out.println("DBアクセス時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+			try {
+				if (con != null) {
+					con.close();
+				}
+			} catch (SQLException e) {
+				System.out.println("DBアクセス時にエラーが発生しました。");
+				e.printStackTrace();
+			}
+		}
+
+		return result;
+	}
+
+	public static int newDataDAO(int key1,String key2,int key3,int key4,int key5,String key6){
+		//①準備
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+
+
+		try {
+			// ②JDBCドライバをロードする
+			Class.forName("com.mysql.jdbc.Driver");
+
+			// ③DBMSとの接続を確立する
+			con = DriverManager.getConnection(
+					"jdbc:mysql://localhost:3306/dbdb?useSSL=false",
+					"root",
+					"1104");
+
+			// ④SQL文を作成する
+			String sql = "insert into Homehold(number,date,income,specting,balanceg,type) VALUE(?,?,?,?,?,?)  ;";
+
+			// ⑤SQL文を実行するための準備を行う
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1,key1);
+			pstmt.setString(2,key2);
+			pstmt.setInt(3,key3);
+			pstmt.setInt(4,key4);
+			pstmt.setInt(5,key5);
+			pstmt.setString(6,key6);
 			result = pstmt.executeUpdate();
 
 			// ⑥SQL文を実行してDBMSから結果を受信する
