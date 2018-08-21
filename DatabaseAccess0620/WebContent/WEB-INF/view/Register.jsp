@@ -8,12 +8,12 @@
 </head>
 <body>
 <form action="/DatabaseAccess0620/RegisterResultServlet" method="get">
-	id<input type=text name=id>
-	日付<input type=text name=date>
-	収入<input type=text name=income>
-	支出<input type=text name=spending>
-	残高<input type=text name=balanceg>
-	項目<input type=text name=type>
+	id<input type="text" name="number">
+	日付<input type="text" name="date">
+	収入<input type="text" name="income">
+	支出<input type="text" name="spending">
+	残高<input type="text" name="balanceg">
+	項目<input type="text" name="type">
 	<input type="submit" value="登録する" class="button">
 </form>
 </body>

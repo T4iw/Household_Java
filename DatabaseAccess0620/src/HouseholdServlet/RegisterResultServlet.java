@@ -31,7 +31,7 @@ public class RegisterResultServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request. setCharacterEncoding("UTF-8");
-		String key1 = request.getParameter("id");
+		String key1 = request.getParameter("number");
 		String key2 = request.getParameter("date");
 		String key3 = request.getParameter("income");
 		String key4 = request.getParameter("spending");
